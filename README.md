@@ -19,10 +19,10 @@ Sidenote on the final join step: Before joining nested annotation is used source
 
 ## Usage 
 To run this script you first need to compile the jar file.
-...
+```
 cd warcutils
 mvn package
-...
+```
 This builds the jar in the warcutile/target directory.
 Make sure the pig scripts points at this jar after compilation.
 The pigscript can be run with `pig -x local religious.pig`
