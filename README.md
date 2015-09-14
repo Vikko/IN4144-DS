@@ -37,5 +37,19 @@ the results will end up in the `./results/` directory
 The search criteria are fully defined by the regex in the script, so instead of searching for 'God' in various languages, it is also possible to do a search on certain names, phone numbers or other patterns that can be described in Regex.
 
 ## Results
+The results of the run on the full cluster, which took approx. 12 hours,  have been copied to [results.txt](https://github.com/Vikko/IN4144-DS/blob/master/results.txt). They are not filtered as post processing so they still contain mismatches on TLD like 'plumbing' and 'kitchen'.
+
+| TLD | Total  | Hits   | Ratio     |
+| --- |:------:|:------:| ---------:|
+| au  | 547    | 533    | 0.9744058 |
+| fm  | 664072 | 612642 | 0.9225536 |
+| bm  |	2736   | 2436   | 0.8903509 |
+| af  | 555    | 480    | 0.8648649 |
+| ba  | 4965   | 4206   | 0.8471299 |
+
+The top 5 of records that contain at least 500 sites already shows some interesting things. Out of 547 Australian websites, 97.4% contained the word 'God', followed by Micronesia, Bermuda, Afghanistan and Bosnia-Herzegovina who all have an above 80% hit on the regex. Due to the simple approach of filtering the full content on a string and taking a TLD instead of trying to parse a location, these numbers are not very trustworthy. By applying more specified filters that, for instance, just target social media the accuracy could be increased. In addition to that it would probably be helpfull if a bigger list of religious references is used instead of a simple string containing the word 'God' in multiple languages. References to prophets or teachers like in Buddhism should be taken into account as well.
 
 ## Final remarks
+Big data is still a hard topic to work with. It's relatively new, technologies are complex and not too broadly used, this makes it harder to gain knowledge. Apache Pig is a really nice tool to generate the more complex map-reduce jobs without going deep into detail with them. This certainly lowers the bar to step into the world of big data.
+
+I started off this project a bit more ambitious then I ended, the plan was to create a script that could handle a complex filter to separate religious from other sites and extract their location based on IP ranges and meta information. Even while warned, the first steps already took more time then expected. In addition my only other teammate notified me after a few weeks that she didn't have time to do anything and was dropping the course. This forced me to simplify it even more and the result is a simple, but flexible word filter with a simple location estimation. I think this would be a good start for any big data project since its flexibility is a good basis for any big data topic.
