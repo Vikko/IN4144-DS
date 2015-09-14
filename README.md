@@ -24,9 +24,17 @@ cd warcutils
 mvn package
 ```
 This builds the jar in the warcutile/target directory.
-Make sure the pig scripts points at this jar after compilation.
+Make sure the built library and the jwat libraries are linked in the script
+```
+REGISTER /home/naward/IN4144/lib/jwat-common-1.0.0.jar;
+REGISTER /home/naward/IN4144/lib/jwat-gzip-1.0.0.jar;
+REGISTER /home/naward/IN4144/lib/jwat-warc-1.0.0.jar;
+REGISTER /home/naward/IN4144/warcutils/target/warcutils-1.2.jar;
+```
 The pigscript can be run with `pig -x local religious.pig`
 the results will end up in the `./results/` directory
+
+The search criteria are fully defined by the regex in the script, so instead of searching for 'God' in various languages, it is also possible to do a search on certain names, phone numbers or other patterns that can be described in Regex.
 
 ## Results
 
